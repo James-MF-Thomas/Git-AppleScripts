@@ -8,7 +8,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 tell application "Finder"
 	set current_path to (POSIX path of (target of front window as alias))
-	set commit_message to text returned of (display dialog "Commit message: " buttons {"Cancel", "Commit"} with title "Checkout Branch" cancel button "Cancel" default button "Commit" default answer "")
+	set commit_message to text returned of (display dialog "Commit message: " buttons {"Cancel", "Commit"} with title "Commit All" cancel button "Cancel" default button "Commit" default answer "")
 	try
 		do shell script ("cd \"" & current_path & "\"; git commit -am" & quoted form of commit_message)
 	on error the_error
